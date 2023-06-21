@@ -686,7 +686,7 @@ class Resolver {
                 this.replaceNamespaceStatement(namespace, declarationLines.namespace);
             } else {
                 this.activeEditor().edit(textEdit => {
-                    textEdit.insert(new vscode.Position(1, 0), namespace);
+                    textEdit.insert(new vscode.Position(2, 0), namespace + "\n");
                 });
             }
         });
