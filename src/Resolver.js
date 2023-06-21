@@ -666,33 +666,8 @@ class Resolver {
             if (devPsr4 !== undefined) {
                 psr4 = {...psr4, ...devPsr4};
             }
-            
-            let currentRelativePath = currentPath.split(composerPath)[1];
 
-            //this is a way to always match with psr-4 entries
-            if(!currentRelativePath.endsWith('/')) {
-                currentRelativePath += '/';
-            }
-
-            let namespaceBase = Object.keys(psr4).filter(function (namespaceBase) {
-                return currentRelativePath.lastIndexOf(psr4[namespaceBase]) !== -1;
-            })[0];
-
-            let baseDir = psr4[namespaceBase];
-
-            namespaceBase = namespaceBase.replace(/\\$/, '');
-
-            let namespace = currentPath.substring(currentPath.lastIndexOf(baseDir)+baseDir.length);
-
-            if (namespace !== "") {
-                namespace = namespace.replace(/\//g, '\\');
-                namespace = namespace.replace(/^\\/, '');
-                namespace = namespace.replace(/\\$/, '');
-                namespace = namespaceBase + '\\' + namespace;
-            } else {
-                namespace = namespaceBase;
-            }
-
+            let namespace = this.calculateNamespace(currentPath, composerPath, psr4);
             namespace = 'namespace ' + namespace + ';' + "\n"
 
             let declarationLines;
@@ -711,6 +686,36 @@ class Resolver {
                 });
             }
         });
+    }
+
+    calculateNamespace(currentPath, composerPath, psr4) {
+        let currentRelativePath = currentPath.split(composerPath)[1];
+
+        //this is a way to always match with psr-4 entries
+        if(!currentRelativePath.endsWith('/')) {
+            currentRelativePath += '/';
+        }
+
+        let namespaceBase = Object.keys(psr4).filter(function (namespaceBase) {
+            return currentRelativePath.lastIndexOf(psr4[namespaceBase]) !== -1;
+        })[0];
+
+        let baseDir = psr4[namespaceBase];
+
+        namespaceBase = namespaceBase.replace(/\\$/, '');
+
+        let namespace = currentPath.substring(currentPath.lastIndexOf(baseDir) + baseDir.length);
+
+        if (namespace !== "") {
+            namespace = namespace.replace(/\//g, '\\');
+            namespace = namespace.replace(/^\\/, '');
+            namespace = namespace.replace(/\\$/, '');
+            namespace = namespaceBase + '\\' + namespace;
+        } else {
+            namespace = namespaceBase;
+        }
+
+        return namespace;
     }
 }
 
