@@ -208,11 +208,16 @@
     "bugs": {
         "url": "https://github.com/MehediDracula/PHP-Namespace-Resolver/issues"
     },
+    "scripts": {
+        "test": "node ./test/runTest.js"
+      },
     "dependencies": {
         "node-natural-sort": "^0.8.6"
     },
     "devDependencies": {
         "@types/vscode": "^1.68.0",
-        "@types/node": "16.x"
+        "@types/node": "16.x",
+        "mocha": "^10.2.0",
+        "@vscode/test-electron": "^2.3.2"
     }
 }
