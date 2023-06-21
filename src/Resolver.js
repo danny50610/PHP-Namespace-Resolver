@@ -668,6 +668,10 @@ class Resolver {
             }
 
             let namespace = this.calculateNamespace(currentPath, composerPath, psr4);
+            if (namespace === null) {
+                return this.showErrorMessage('No psr-4 namespace match this file');
+            }
+
             namespace = 'namespace ' + namespace + ';' + "\n"
 
             let declarationLines;
@@ -700,10 +704,15 @@ class Resolver {
             return currentRelativePath.lastIndexOf(psr4[namespaceBase]) !== -1;
         })[0];
 
+        if (namespaceBase === undefined) {
+            return null;
+        }
+
         let baseDir = psr4[namespaceBase];
 
         namespaceBase = namespaceBase.replace(/\\$/, '');
 
+        currentPath = currentPath + '/';
         let namespace = currentPath.substring(currentPath.lastIndexOf(baseDir) + baseDir.length);
 
         if (namespace !== "") {
