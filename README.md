@@ -5,7 +5,7 @@ Based on https://github.com/MehediDracula/PHP-Namespace-Resolver
 ---
 
 ## Change
-- Fix root class namespace (ex: `namespace App;`)
+- Fix root class namespace resolve (ex: `namespace App;`)
 - Add Unit Test (a little)
 
 ---
