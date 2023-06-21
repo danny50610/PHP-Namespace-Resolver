@@ -1,8 +1,14 @@
 # PHP Namespace Resolver
 
-[![Latest Release](https://vsmarketplacebadge.apphb.com/version-short/MehediDracula.php-namespace-resolver.svg
-)](https://marketplace.visualstudio.com/items?itemName=MehediDracula.php-namespace-resolver) [![Installs](https://vsmarketplacebadge.apphb.com/installs-short/MehediDracula.php-namespace-resolver.svg
-)](https://marketplace.visualstudio.com/items?itemName=MehediDracula.php-namespace-resolver) [![Rating](https://vsmarketplacebadge.apphb.com/rating-short/MehediDracula.php-namespace-resolver.svg)](https://marketplace.visualstudio.com/items?itemName=MehediDracula.php-namespace-resolver#review-details)
+Based on https://github.com/MehediDracula/PHP-Namespace-Resolver
+
+---
+
+## Change
+- Fix root class namespace (ex: `namespace App;`)
+- Add Unit Test (a little)
+
+---
 
 PHP Namespace Resolver can import and expand your class. You can also sort your imported classes by line length or in alphabetical order.
 

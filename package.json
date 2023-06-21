@@ -3,8 +3,14 @@
     "displayName": "PHP Namespace Resolver",
     "description": "Import and expand php namespaces",
     "version": "1.1.9",
-    "publisher": "MehediDracula",
+    "publisher": "danny50610",
     "author": "Mehedi Hassan <MehediDracula@gmail.com>",
+    "contributors": [
+        {
+            "name": "danny50610",
+            "url": "https://github.com/danny50610"
+        }
+    ],
     "license": "SEE LICENSE IN LICENSE",
     "engines": {
         "vscode": "^1.68.0"
@@ -203,14 +209,14 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/MehediDracula/PHP-Namespace-Resolver"
+        "url": "https://github.com/danny50610/PHP-Namespace-Resolver"
     },
     "bugs": {
-        "url": "https://github.com/MehediDracula/PHP-Namespace-Resolver/issues"
+        "url": "https://github.com/danny50610/PHP-Namespace-Resolver/issues"
     },
     "scripts": {
         "test": "node ./test/runTest.js"
-      },
+    },
     "dependencies": {
         "node-natural-sort": "^0.8.6"
     },
